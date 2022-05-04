@@ -1,5 +1,6 @@
 import express, { Application } from 'express';
 import cors from 'cors';
+import baseRouter from './routes/index';
 
 interface ApiInterface {
   server(): Promise<Application>;
@@ -10,8 +11,8 @@ class Api implements ApiInterface {
     const app = express();
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-    // app.use('/api/v1', baseRouter.routes);//setting up base route
-    // define a route handler for the default home page
+    app.use('/api/v1', baseRouter.routes);
+
     app.get("/", (req, res) => {
       res.send("Welcome to NUS express application! ");
     });
