@@ -1,8 +1,9 @@
 import { Repository } from 'typeorm';
 import { AppDataSource } from '../data-source';
 import { User } from '../entity/User';
+import IUserRepository from './interfaces/IUserRepository';
 
-export default class UserRepository {
+class UserRepository implements IUserRepository {
   repo: Repository<User>;
 
   constructor() {
@@ -17,3 +18,5 @@ export default class UserRepository {
     return this.repo.save(data);
   }
 }
+
+export default new UserRepository();

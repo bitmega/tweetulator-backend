@@ -1,4 +1,4 @@
-import express, { Application } from 'express';
+import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import baseRouter from './routes/index';
 
@@ -7,14 +7,14 @@ interface ApiInterface {
 }
 
 class Api implements ApiInterface {
-  async server(): Promise<express.Application> {
+  async server(): Promise<Application> {
     const app = express();
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use('/api/v1', baseRouter.routes);
 
-    app.get("/", (req, res) => {
-      res.send("Welcome to NUS express application! ");
+    app.get('/', (_req: Request, res: Response) => {
+      res.send('Welcome to NUS express application!');
     });
     app.use(cors());
     return app;

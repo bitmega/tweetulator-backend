@@ -1,17 +1,21 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
+import UserHandler from '../handlers/UserHandler';
 import { IRouter } from './interfaces/IRouter';
+import { successResponse, errorResponse } from './response';
 
 const router = Router();
 
-class UserRouter implements IRouter{
-  get routes(){
-    router.get('/', async (req: Request, res: Response) => {
+class UserRouter implements IRouter {
+  get routes (){
+    router.get('/', async (_req, res) => {
       try {
-        return res.send({});
+        const users = await UserHandler.getAll();
+        return successResponse(res, { users });
       } catch (err) {
-        throw err;
+        return errorResponse(res, err);
       }
-    });
+    })
+
     return router;
   }
 }
