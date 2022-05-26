@@ -1,11 +1,19 @@
 version: '3'
 services:
 
-  postgres:
+  db:
     image: "postgres"
     ports:
-      - "5432:5432"
+      - 5432:5432
     environment:
-      POSTGRES_USER: "test"
-      POSTGRES_PASSWORD: "test"
-      POSTGRES_DB: "test"
+      POSTGRES_USER: nus
+      POSTGRES_PASSWORD: RaNdOMSt0nGP@assW0rd
+      POSTGRES_DB: nus_express_template
+    volumes:
+      - ./dockerdb/mount:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

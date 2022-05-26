@@ -1,4 +1,4 @@
-import { User } from '../../../database/entity/User';
+import { User } from 'src/database/entity/User';
 
 export default interface IUserHandler {
   getAll(): Promise<User[]>
