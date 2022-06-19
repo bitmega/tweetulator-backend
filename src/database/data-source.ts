@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { User } from "./entity/User";
+import { User } from "./entities/User";
 import { Environment } from '../config/enviroment'
 
 Environment.setup();

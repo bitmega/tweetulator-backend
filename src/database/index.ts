@@ -1,14 +1,15 @@
 import 'reflect-metadata';
+import { DataSource } from 'typeorm';
 import { AppDataSource } from './data-source';
 
 export interface IDatabase {
-  setup(): Promise<any>;
+  setup(): Promise<DataSource>;
 }
 
 class Database implements IDatabase {
-  async setup() {
+  async setup(): Promise<DataSource> {
     try {
-      await AppDataSource.initialize();
+      return await AppDataSource.initialize();
     } catch (error) {
       console.error('Failed connect Database', error);
     }

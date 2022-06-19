@@ -1,11 +1,11 @@
 {
-  "name": "nus-express-template",
+  "name": "jack-tweetulator-backend",
   "version": "0.0.0",
   "scripts": {
     "build": "tsc --build --clean && tsc",
     "lint": "eslint src/**/*.ts",
     "start": "yarn lint && yarn build && yarn dev",
-    "dev": "nodemon src/index.ts --watch",
+    "dev": "node dist/index.js --watch",
     "db:migrate": "typeorm-ts-node-commonjs migration:run -d ./src/database/data-source.ts"
   },
   "dependencies": {

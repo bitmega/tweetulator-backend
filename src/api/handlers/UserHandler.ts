@@ -1,11 +1,11 @@
-import UserRepository from '../../database/repostories/UserRepository';
+
+import { User } from 'src/database/entities/User';
 import IUserHandler from './interfaces/IUserHandler';
 
 class UserHandler implements IUserHandler {
-  async getAll() {
+  async getAll(): Promise<User[]> {
     try {
-      const users = await UserRepository.getAll();
-      return users;
+      return ;
     } catch (error) {
       throw error
     }

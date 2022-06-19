@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_USER: nus
       POSTGRES_PASSWORD: RaNdOMSt0nGP@assW0rd
-      POSTGRES_DB: nus_express_template
+      POSTGRES_DB: tweetulator
     volumes:
       - ./dockerdb/mount:/var/lib/postgresql/data
 
