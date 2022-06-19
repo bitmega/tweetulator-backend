@@ -1,13 +1,13 @@
 import { Router } from 'express';
 import { IRouter } from './interfaces/IRouter';
-import userRouter from './userRouter';
+import threadRouter from './threadRouter';
 
 // Init router
 const router = Router();
 
 class BaseRouter implements IRouter {
   get routes(){
-    router.use('/users', userRouter.routes);
+    router.use('/threads', threadRouter.routes)
     return router;
   }
 }

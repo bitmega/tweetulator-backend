@@ -6,9 +6,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: nus
+      POSTGRES_USER: jack
       POSTGRES_PASSWORD: RaNdOMSt0nGP@assW0rd
-      POSTGRES_DB: tweetulator
+      POSTGRES_DB: tweetulator_db
     volumes:
       - ./dockerdb/mount:/var/lib/postgresql/data
 

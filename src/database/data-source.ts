@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { User } from "./entities/User";
+import { Thread } from "./entities/Thread";
 import { Environment } from '../config/enviroment'
 
 Environment.setup();
@@ -14,7 +14,7 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_DATABASE || "test",
   synchronize: true,
   logging: false,
-  entities: [User],
+  entities: [Thread],
   migrations: [],
   subscribers: [],
 })
