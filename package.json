@@ -2,10 +2,10 @@
   "name": "jack-tweetulator-backend",
   "version": "0.0.0",
   "scripts": {
-    "build": "tsc --build --clean && tsc",
+    "build": "tsc --outDir ./api && cp -R node_modules ./api/ && cp package.json ./api/",
     "lint": "eslint src/**/*.ts",
     "start": "yarn lint && yarn build && yarn dev",
-    "dev": "node dist/index.js --watch",
+    "dev": "node ./api/index.js",
     "db:migrate": "typeorm-ts-node-commonjs migration:run -d ./src/database/data-source.ts"
   },
   "dependencies": {
