@@ -11,7 +11,7 @@ export class Thread extends Base implements IThread {
   @TreeChildren()
   comments: Thread[];
 
-  @Column({ name: 'current_result' })
+  @Column({ name: 'current_result', type: 'float' })
   currentResult: number
 
   @Column({ name: 'text' })
