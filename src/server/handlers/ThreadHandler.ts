@@ -4,6 +4,7 @@ import IThreadHandler from './interfaces/IThreadHandler';
 import { AppDataSource } from '../../database/data-source';
 import { TreeRepository } from 'typeorm';
 import { calculateResult, Operator } from '../utils/calculator';
+import { validate } from 'class-validator';
 
 class ThreadHandler implements IThreadHandler {
   repo: TreeRepository<Thread>;
@@ -22,7 +23,7 @@ class ThreadHandler implements IThreadHandler {
     }
   }
 
-  async create(payload: { text: string, parentId: number, owner: string }): Promise<Thread> {
+  async create(payload: { text: string, owner: string, parentId?: number }): Promise<Thread> {
     try {
       const newThread = new Thread();
 
@@ -44,6 +45,12 @@ class ThreadHandler implements IThreadHandler {
 
       newThread.text = payload.text;
       newThread.owner = payload.owner;
+
+      const errors = await validate(newThread);
+
+      if (errors.length) {
+        throw Error(JSON.stringify(errors))
+      }
 
       return await this.repo.save(newThread);
     } catch (error) {

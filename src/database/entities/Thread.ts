@@ -1,4 +1,6 @@
+import { Validate } from 'class-validator';
 import { Entity, Column, Tree, TreeParent, TreeChildren } from 'typeorm';
+import { ThreadText } from '../validators/Thread';
 import { Base } from './Base';
 import { IThread } from './interfaces/IThread';
 
@@ -15,6 +17,7 @@ export class Thread extends Base implements IThread {
   currentResult: number
 
   @Column({ name: 'text' })
+  @Validate(ThreadText)
   text: string
 
   @Column({ name: 'owner' })

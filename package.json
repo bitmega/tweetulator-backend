@@ -9,6 +9,8 @@
     "db:migrate": "typeorm-ts-node-commonjs migration:run -d ./src/database/data-source.ts"
   },
   "dependencies": {
+    "@types/validator": "^13.7.3",
+    "class-validator": "^0.13.2",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
