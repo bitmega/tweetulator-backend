@@ -1,8 +1,18 @@
-# NUS Express Template
+## Jack Tweetulator BE
 
-## TODO
-- Connect MongoDB
-- Full flow template
-- Setup docker local
-- Update Readme
-- Document about integrated libs (TypeORM, Docker)
+### Development
+```
+cd tweetulator-backend
+touch .env
+cp .env.example .env
+docker-compose -f docker-compose-local.yml up
+```
+
+## Stack
+- Express/TypeScript
+- Docker
+- Database Postgres
+
+## Deployment
+- Vercel Serverless
+- AWS RDS Database

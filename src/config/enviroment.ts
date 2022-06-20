@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 
 export class Environment {
-  static setup() {
+  static setup(): void {
     dotenv.config();
   }
 }

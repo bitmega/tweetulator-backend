@@ -5,7 +5,7 @@ import { Environment } from '../config/enviroment'
 
 Environment.setup();
 
-export const AppDataSource = new DataSource({
+export const AppDataSource: DataSource = new DataSource({
   type: "postgres",
   host: process.env.DB_HOST || "localhost",
   port: parseInt(process.env.DB_PORT) || 5432,
